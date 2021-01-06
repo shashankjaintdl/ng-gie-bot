@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AXA-GIE-UI-NG"
+    }
+  },
+  "defaultProject": "AXA-GIE-UI-NG",
+  "cli": {
+    "analytics": false
+  }
 }
