@@ -45,12 +45,12 @@ export class BotComponent implements AfterViewInit, OnInit  {
     bubbleFromUserBackground: '#eff6f8',
     sendBoxBackground: 'white',
     sendBoxBorderTop: 'solid 4px #E6E6E6',
-    suggestedActionTextColor: 'black',
     suggestedActionBorder: `solid 2px #009682`,
     suggestedActionHeight: 50,
     suggestedActionBorderRadius:'30%',
     suggestedActionBackground:'#1e6465',
     suggestedActionDisabledBackground:'white',
+    markdownRespectCRLF:true,
     root: {
 
       /* width */
@@ -116,6 +116,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
   
   public ngOnInit(): void {
     this.obtainStylePayload();
+    
     this.obtainLocalToken();
   }
 
@@ -146,7 +147,9 @@ export class BotComponent implements AfterViewInit, OnInit  {
                   userID: 'USER_ID',
                   styleOptions: this.styleOptionsPayload,
                   styleSet: styleSet,
-                  disabled: false
+                  disabled: false,
+                  // locale:'fr-FR',
+                  sendTypingIndicator:true
                 }
                 // this.bot.renderWebChat(this.passViewChild, null, directLine, userId, this.styleOptionsPayload, styleSet);
 
@@ -169,9 +172,12 @@ export class BotComponent implements AfterViewInit, OnInit  {
                     styleSet.textContent,
                     {
                       cursor: 'crosshair',
-                      color: 'white'
+                      color: 'white',
+                     
                     }
                   );
+                  console.log("Hello")
+                  console.log(styleSet);
                   styleSet.root = Object.assign(
                     {},
                     styleSet.root,

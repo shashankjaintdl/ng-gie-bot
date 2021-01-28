@@ -1,1 +1,92 @@
-<p>footer works!</p>
+<footer >
+    <!-- <button id="mychat" class="close-button" onclick="openForm()"><img id="clickbutton" src="images/smartyIcon.png" />&nbsp; &nbsp; Smarty</button> -->
+
+
+   <img src="assets/bg-final1.png">
+   <div class="top-btn">
+    Je fonctionne <br />sur <b>Chrome</b> 
+   </div>
+   <div class="left-btn">
+    Je parle <b>Français</b>&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;
+   
+   </div>
+   <div class="right-btn">
+    <a href="mailto:smartysupport@axa.com">
+        En cas de problème,<br /> contacter le support <b>ici</b>
+    </a>
+   </div>
+
+   <div class="container-fluid footer-color" >
+      <div class="footer-content">
+          Les questions que vous posez dans le champ libre du chatbot ne doivent pas pouvoir être associées à un individu en particulier, étant entendu que ces informations sont collectées dans le cadre de l’amélioration du chatbot. Veuillez ne divulguer aucune information personnelle lorsque vous renseignez ce champ libre.
+          Pour plus d’information sur le traitement de vos données personnelles ou vos droits, vous pouvez consulter la Notice d’information via le
+          <a href="#" (click)="assign()"
+          data-toggle="modal" data-target="#confirmApprove" style="line-height: 0%;">lien suivant</a>.
+      </div>
+   </div>
+   <!-- <div id="popup" class="overlay">
+    <div class="popup">
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <embed src="assets/Chatbot-Privacy-Notice.pdf#toolbar=0" width="100%" height="100%" type="application/pdf">
+        </div>
+    </div>
+</div> -->
+
+
+
+
+  
+    <!-- <div class="footer-color container-fluid">
+        <div class="footer-container" style="text-align: center;">
+            Les questions que vous posez dans le champ libre du chatbot ne doivent pas pouvoir être associées à un individu en particulier, étant entendu que ces informations sont collectées dans le cadre de l’amélioration du chatbot. Veuillez ne divulguer aucune information personnelle lorsque vous renseignez ce champ libre.
+            Pour plus d’information sur le traitement de vos données personnelles ou vos droits, vous pouvez consulter la Notice d’information via le
+            <a href="#popup">lien suivant</a>.
+        </div>
+    </div> -->
+    
+    
+  
+</footer>
+
+<div class="modal fade" id="confirmApprove" style="z-index: 9999;">
+    <div class="modal-dialog" style="width:auto">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <button type="button" class="close"  data-dismiss="modal" ><i class="fa fa-close"></i></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <!-- <pdf-viewer [src]="'assets/Chatbot-Privacy-Notice.pdf'"
+            [original-size]="false"
+            ></pdf-viewer> -->
+            <ngx-extended-pdf-viewer [src]="pdfSrc" 
+            useBrowserLocale="true" 
+            height="80vh"
+            width="50vh"
+            [textLayer]="true"
+            [showSpreadButton]="false"
+            [showPropertiesButton]="false"
+            [showPresentationModeButton]="false"
+            [showDownloadButton]="false"
+            [contextMenuAllowed]="false"
+            [ignoreKeyboard]="true"
+            [zoomLevels]="['page-fit']"
+            delayFirstView="2000"
+            [showPrintButton]="false"
+            [showOpenFileButton]="false"
+           >
+            </ngx-extended-pdf-viewer>
+            <!-- <embed src="" width="100%" height="100%" type="application/pdf"> -->
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+
+
+  

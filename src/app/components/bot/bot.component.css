@@ -7,9 +7,13 @@
     color: white;
 }
 
+
+
 .flex {
     display: flex;
     height: 100%;
+
+
 }
 .app__portraitAvatar {
     border-radius: 4px;
@@ -27,3 +31,38 @@
     position: relative;
     justify-content: flex-end;
 }
+
+
+.webchat__typingIndicator {
+    font-family: 'Calibri', 'Helvetica Neue', 'Arial', 'sans-serif';
+    font-size: 14px;
+    padding: 10px;
+  }
+
+
+  .activityStatus {
+    color: #767676;
+    font-family: Calibri, 'Helvetica Neue', Arial, sans-serif;
+  }
+  .highlightedActivity--bot {
+    border-left-color: Red;
+    border-left-style: solid;
+    border-left-width: 5px;
+    margin-left: 8px;
+  }
+
+  .highlightedActivity--user {
+    border-right-color: Green;
+    border-right-style: solid;
+    border-right-width: 5px;
+    margin-right: 8px;
+  }
+
+  .activityStatus__sendStatus,
+  .activityStatus__timestampPretext {
+    font-size: 80%;
+  }
+
+  .activityStatus__timestampContent {
+    text-transform: lowercase;
+  }
