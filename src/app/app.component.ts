@@ -22,7 +22,7 @@ export class AppComponent {
   _jKeys:JKeys=new JKeys();
   
   constructor(protected localStorage:CookieService){
-    // this.redirect();
+    this.redirect();
   }
 
   redirect(){

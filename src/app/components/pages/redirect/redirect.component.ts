@@ -14,15 +14,14 @@ export class RedirectComponent implements OnInit {
   constructor(private localStorage:CookieService,private router:Router) { }
 
   ngOnInit(): void {
-    this.redirect();
+    // this.redirect();
   }
   redirect(){
-    this.localStorage.removeAll();
     var currentURL=window.location.href;
     this.code=currentURL.split('&code=')[1];
-    localStorage.setItem('code',this.code);
-    console.log("code"+this.code);
-    if(this.code===undefined || this.code==undefined){
+    this.code=this.localStorage.get('code');
+    console.log("code2="+this.code);
+    if(this.localStorage.get("code")===undefined || this.localStorage.get("code")==undefined){
     window.location.href =  this._jKeys.maamStgHost+
                            'authorize?client_id='+
                             this._jKeys.clientId+
@@ -31,9 +30,9 @@ export class RedirectComponent implements OnInit {
                             '&scope=urn%3Aaxa%3Agie%3Achatbot%3Agir&redirect_uri='+
                             this._jKeys.stgRedirectUrl;
     }
-    else{
-      this.router.navigate(['/callback'])
-    }
+    // else{
+    //   this.router.navigate(['/callback'])
+    // }
   }
 
 }

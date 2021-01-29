@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CookieModule } from 'ngx-cookie';
 import { HttpModule } from '@angular/http'
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule} from './app-routing.module';
 import {RouterModule} from'@angular/router';
 import { AppComponent } from './app.component';
@@ -19,8 +19,6 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
 import { CallbackComponent } from './components/callback/callback.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { RedirectComponent } from './components/pages/redirect/redirect.component';
-import { TokenInterceptorService } from './services/token-interceptor.service';
-import { GuardGuard } from './services/-guard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,9 +46,9 @@ import { GuardGuard } from './services/-guard.guard';
     NgxUiLoaderRouterModule
 
   ],
-  providers: [NgxMicrosoftBotFrameworkModule,GuardGuard,
+  providers: [NgxMicrosoftBotFrameworkModule,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {provide: HTTP_INTERCEPTORS,useClass: TokenInterceptorService, multi: true}
+    // {provide:APP_INITIALIZER,useFactory:initializeAuthConfig,multi:true}
 ],
   bootstrap: [AppComponent]
 })
