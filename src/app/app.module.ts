@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CookieModule } from 'ngx-cookie';
 import { HttpModule } from '@angular/http'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule} from './app-routing.module';
 import {RouterModule} from'@angular/router';
 import { AppComponent } from './app.component';
@@ -18,6 +18,9 @@ import {OAuthModule} from 'angular-oauth2-oidc';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from "ngx-ui-loader";
 import { CallbackComponent } from './components/callback/callback.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { RedirectComponent } from './components/pages/redirect/redirect.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { GuardGuard } from './services/-guard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +31,7 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     BotComponent,
     CallbackComponent,
     UnauthorizedComponent,
+    RedirectComponent,
   ],
   imports: [
     HttpModule,
@@ -44,9 +48,9 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     NgxUiLoaderRouterModule
 
   ],
-  providers: [NgxMicrosoftBotFrameworkModule,
+  providers: [NgxMicrosoftBotFrameworkModule,GuardGuard,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    // {provide:APP_INITIALIZER,useFactory:initializeAuthConfig,multi:true}
+    {provide: HTTP_INTERCEPTORS,useClass: TokenInterceptorService, multi: true}
 ],
   bootstrap: [AppComponent]
 })

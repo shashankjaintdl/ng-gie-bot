@@ -38,6 +38,14 @@ export class AuthenticationService{
             catchError(this.handleError)
         );
       }
+
+      loggedIn() {
+        return !!this.localstorage.get('token');
+      }
+
+      getToken() {
+        return this.localstorage.get('token');
+      }
     
       handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {

@@ -51,6 +51,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
     suggestedActionBackground:'#1e6465',
     suggestedActionDisabledBackground:'white',
     markdownRespectCRLF:true,
+    messageActivityWordBreak:'break-all',
     root: {
 
       /* width */
