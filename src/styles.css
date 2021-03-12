@@ -1,0 +1,44 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.main-content{
+    /* background: lightgrey;
+     */
+    background: rgba(155, 148, 148, 0.2);
+    height:100%;
+    overflow:auto;
+    position: fixed;
+    width: 100%;
+    padding: 3% 2% 1% 2%;
+}
+.panel{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    /* border-radius: 5% 5% 5% 5%; */
+    border:10px lightgrey;
+}
+.panel .panel-heading{
+    border: none;
+    background: white;
+}
+
+.panel .panel-footer{
+    border: none;
+    background: white;
+}
+
+
+
+@media only screen and (max-width:764px) {
+    .content{
+        margin-top: 80px;
+     
+    }
+}
+
+@media only screen and (min-width:765px) {
+    .content{
+        margin-top: 50px;
+      
+    }
+}

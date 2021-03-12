@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CookieModule } from 'ngx-cookie';
 import { HttpModule } from '@angular/http'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule} from './app-routing.module';
 import {RouterModule} from'@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/pages/header/header.component';
 import { FooterComponent } from './components/pages/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent } from './components/pages/nav/nav.component';
 import { BotComponent } from './components/bot/bot.component';
 import { NgxMicrosoftBotFrameworkModule } from 'ngx-microsoft-bot-framework';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -19,6 +19,14 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
 import { CallbackComponent } from './components/callback/callback.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { RedirectComponent } from './components/pages/redirect/redirect.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { GuardGuard } from './services/-guard.guard';
+import { ChatReportsComponent } from './components/reports/chat-reports/chat-reports.component';
+import { SideNavComponent } from './components/pages/side-nav/side-nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LogoutComponent } from './components/pages/logout/logout.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +38,10 @@ import { RedirectComponent } from './components/pages/redirect/redirect.componen
     CallbackComponent,
     UnauthorizedComponent,
     RedirectComponent,
+    ChatReportsComponent,
+    SideNavComponent,
+    LogoutComponent,
+    DashboardComponent,
   ],
   imports: [
     HttpModule,
@@ -40,15 +52,18 @@ import { RedirectComponent } from './components/pages/redirect/redirect.componen
     AppRoutingModule,
     NgxExtendedPdfViewerModule,
     OAuthModule.forRoot(),
+    FormsModule,
+    
     // AuthModule.forRoot(),
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({showForeground:true}),
-    NgxUiLoaderRouterModule
+    NgxUiLoaderRouterModule,
+    // BrowserAnimationsModule
 
   ],
-  providers: [NgxMicrosoftBotFrameworkModule,
+  providers: [NgxMicrosoftBotFrameworkModule,GuardGuard,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    // {provide:APP_INITIALIZER,useFactory:initializeAuthConfig,multi:true}
+    {provide: HTTP_INTERCEPTORS,useClass: TokenInterceptorService, multi: true}
 ],
   bootstrap: [AppComponent]
 })

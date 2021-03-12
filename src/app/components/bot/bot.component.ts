@@ -26,6 +26,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
     webSocket: true
   };
   stylesetPayload: DEFAULT_OPTIONS = {
+   
     rootHeight: '100%',
     botAvatarInitials: 'BF',
     userAvatarInitials: 'CH',
@@ -51,7 +52,6 @@ export class BotComponent implements AfterViewInit, OnInit  {
     suggestedActionBackground:'#1e6465',
     suggestedActionDisabledBackground:'white',
     markdownRespectCRLF:true,
-    messageActivityWordBreak:'break-all',
     root: {
 
       /* width */
@@ -141,7 +141,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
 
                 
                 const styleSet = window.WebChat.createStyleSet(this.stylesetPayload);
-                
+          
                 let userId = 'USER_ID';
                 this.renderObject = {
                   directLine: directLine,
@@ -149,7 +149,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
                   styleOptions: this.styleOptionsPayload,
                   styleSet: styleSet,
                   disabled: false,
-                  // locale:'fr-FR',
+                  locale:'en-US',
                   sendTypingIndicator:true
                 }
                 // this.bot.renderWebChat(this.passViewChild, null, directLine, userId, this.styleOptionsPayload, styleSet);
@@ -177,8 +177,8 @@ export class BotComponent implements AfterViewInit, OnInit  {
                      
                     }
                   );
-                  console.log("Hello")
-                  console.log(styleSet);
+                  // console.log("Hello")
+                  // console.log(styleSet);
                   styleSet.root = Object.assign(
                     {},
                     styleSet.root,

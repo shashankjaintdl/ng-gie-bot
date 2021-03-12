@@ -7,6 +7,7 @@ import { Response, Headers, RequestOptions, Http, RequestMethod } from "@angular
 import { LoginPayload } from "../models/LoginPayload";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { map, filter, mergeMap } from 'rxjs/operators';
+// import { JwtHelper } from "angular2-jwt";
 
 @Injectable({
     providedIn: "root"
@@ -14,7 +15,7 @@ import { map, filter, mergeMap } from 'rxjs/operators';
 export class AuthenticationService{
 
     public headers=new Headers({'Content-Type':''});
-    
+    // helper:JwtHelper=new JwtHelper();
     private options = new RequestOptions({ headers: this.headers });
     _jKeys: JKeys = new JKeys();
 
@@ -62,5 +63,16 @@ export class AuthenticationService{
         return throwError(
           'Something bad happened; please try again later.');
       }
+
+      
+      // isTokenExpired(token?: string): boolean {
+      //   if(!token) token = this.getToken();
+      //   if(!token) return true;
+
+      //   const date = this.helper.getTokenExpirationDate(token);
+      //   console.log(date);
+      //   if(date === undefined) return false;
+      //   return !(date.valueOf() > new Date().valueOf());
+      // }
     
 }

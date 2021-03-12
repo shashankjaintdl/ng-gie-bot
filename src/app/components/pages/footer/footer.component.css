@@ -1,28 +1,40 @@
-   
+
+
 
     div.modal  > div > div> div>  embed{
         position: relative;
-           
-    } 
 
-  
-    
-  
+    }
+
+
+
+
     footer{
         width: 100%;
         position: fixed;
         /* padding: 2px 0; */
-        margin: auto; 
+        margin: auto;
         bottom: 0%;
+
     }
-    footer > img{
+
+    .img-container {
+        display: inline-block;
+        position: relative;
+      }
+
+      .img-container .fix {
+        position: absolute;
+      }
+      footer div.img-container  img{
+
         object-position: bottom;
-        object-fit:cover;
-        max-width: 100%;
+        object-fit:fill;
+        width:100%;
     }
-    
-   
-  
+
+
+
     footer div.left-btn{
        float: left;
        position: fixed;
@@ -33,35 +45,32 @@
        background-color: #26349b;
        border: 2px solid #26349b;
        min-width:10%;
-
+       align-items: center;
+       display: flex;
        border-radius: 12px;
-       max-height:50px;
-       font-size: 80%;
-
+       max-height:70px;
+       font-size: 100%;
        cursor: auto;
        text-align: center;
        text-decoration: none;
-       padding: 5px;
+       padding: 15px;
        color: #FFFFFF;
     }
 
-       
-  
+
+
     footer div.right-btn {
         float: left;
         position: fixed;
-        left:44%;
+        left:40%;
         top: 67%;
         bottom: 8%;
         z-index: 1000;
         background-color: #26349b;
         border: 2px solid #26349b;
         min-width:10%;
-
         border-radius: 12px;
- 
-        max-height:50px;
-        font-size: 80%;
+        max-height:70px;
         cursor: auto;
         text-align: center;
         text-decoration: none;
@@ -71,27 +80,31 @@
 
      footer div.right-btn  a{
          color:white;
+         font-size: 100%;
+         text-align: justify;
+
+
      }
 
      footer div.top-btn{
         float: left;
         position: fixed;
-        left:28%;
-        top: 46%;
-        bottom:55%;
+        left:26%;
+        top: 38%;
+        bottom:58%;
         z-index: 1000;
         background-color: #26349b;
         border: 2px solid #26349b;
         min-width:10%;
         border-radius: 12px;
-        align-content: center;
-        min-height:50px;
-        font-size: 80%;
-
+        align-items: center;
+        display: flex;
+        min-height:70px;
+        font-size: 100%;
         cursor: auto;
         text-align: center;
         text-decoration: none;
-        padding: 5px;
+        padding: 15px;
         color: #FFFFFF;
      }
 
@@ -167,7 +180,7 @@
             text-decoration-line:underline;
         }
     }
-   
+
 
     @media screen and (max-width:786px){
         footer > .footer-color > .footer-content{
@@ -194,7 +207,7 @@
         }
     }
 
-    
+
 /*pop up css*/
 
 /* h1 {

@@ -74,14 +74,15 @@ export class CallbackComponent implements OnInit {
   getToken(){
       var currentURL=window.location.href;
       this.code=currentURL.split('&code=')[1];
-      console.log(this.code)
+      // console.log(this.code)
       if(this.localstorage.get("code")!==undefined || this.localstorage.get("code")!=undefined || this.localstorage.get("code")!=null){
-          
           this._authenticationService.logIn(this.localstorage.get("code")).subscribe((response:LoginPayload)=>{
           this.route.navigate(['/smarty']);
-
           this.token=response.access_token;
           this.localstorage.put("token",response.access_token);
+          var decodedToken=this.getDecodedAccessToken(response.access_token);
+          this.localstorage.put("email",decodedToken.sub);
+          
             
           //var decoded_token=jwt_decode(response.access_token);            
 
@@ -89,6 +90,19 @@ export class CallbackComponent implements OnInit {
             this.route.navigate['/unauthorized'];
         });
       }
+      else{
+        this.route.navigate(['/auth']);
+      }
+  }
+
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    }
+    catch (Error) {
+      return null;
+    }
   }
 
 }

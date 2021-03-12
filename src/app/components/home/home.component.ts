@@ -6,6 +6,7 @@ import {JKeys} from '../../models/JKeys';
 import { CookieService } from "ngx-cookie";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { map, filter, mergeMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   public auth:LoginPayload;
 
   constructor(
-    private localstorage: CookieService,
+    private localstorage: CookieService,private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -35,6 +36,21 @@ export class HomeComponent implements OnInit {
     
   }
 
+  loginAdmin(){
+    if(this.token){
+      this.router.navigate(['admin/dashboard']);  
+
+    }
+    else{
+      this.router.navigate(['unauthorized']);  
+    }
+
+  }
+
+  onRefresh()
+  {
+    location.reload();    
+  }
   onShow(){
        //@ts-ignore
        $(document).ready(function(){
@@ -82,6 +98,11 @@ export class HomeComponent implements OnInit {
 
     const elem1:HTMLElement = document.getElementsByClassName("Layout-expand");
     this.setStyleAttribute(elem1[0], {'height':'100%', 'min-height':'100%'});
+
+     //@ts-ignore
+
+   const elem3:HTMLElement = document.getElementsByClassName("Layout");
+   this.setStyleAttribute(elem3[0], {'min-width':'100%', 'max-height':'100%','right':'0px','margin-bottom':'0px'});
     }
     else{
 
@@ -92,11 +113,13 @@ export class HomeComponent implements OnInit {
 
     const elem1:HTMLElement = document.getElementsByClassName("Layout-expand");
     this.setStyleAttribute(elem1[0], {'height':'90%', 'min-height':'90%'});
-    }
-   //@ts-ignore
+
+     //@ts-ignore
 
    const elem3:HTMLElement = document.getElementsByClassName("Layout");
-   this.setStyleAttribute(elem3[0], {'min-width':'100%', 'max-height':'100%','right':'0px',});
+   this.setStyleAttribute(elem3[0], {'min-width':'100%', 'max-height':'100%','right':'0px'});
+    }
+  
 
 
   }
@@ -137,7 +160,7 @@ export class HomeComponent implements OnInit {
       //@ts-ignore
       const elem3:HTMLElement = document.getElementsByClassName("Layout");
       // this.setStyleAttribute(elem3[0], {'min-width':screenPerc+"%", 'max-height':'500px','right':'2px',"margin-left":"15px"});
-      this.setStyleAttribute(elem3[0], {'min-width':"40%", 'max-height':'500px','right':'2px',"margin-left":"15px"});
+      this.setStyleAttribute(elem3[0], {'min-width':"40%", 'max-height':'500px','right':'2px',"margin-left":"15px",'margin-bottom':'10vmin'});
 
     }
   

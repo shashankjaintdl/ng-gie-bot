@@ -10,9 +10,11 @@ export class JKeys{
       Kindly comment the below configuration while doing the deployment in Non-Productions
     */
 
-    public maamHost = "https://maam.axa.com/maam/v2/";
+    public maamHost:string = "https://maam.axa.com/maam/v2/";
     public maamStgHost:any='https://maam-stg.axa.com/maam/v2/';
     public stgRedirectUrl:string='https://gie-bot-test.azurewebsites.net'
+
+    public adminHost:string="https://localhost:44380/api/v1/"
 
     /*=======================
      Production configuration
@@ -24,17 +26,23 @@ export class JKeys{
 
     // public maamHost = "https://maam.axa.com/maam/v2/";
     // public maamStgHost:any='https://maam.axa.com/maam/v2/';
-    // public stgRedirectUrl:string='https://gie.azurewebsites.net'
-    
+    // public stgRedirectUrl:string='https://gie.azurewebsites.net'    
+    // public secret:string="BeybTd3ehgs.0sMod7EPfTy_HePGUiuUaVzmrIbS_ypZiA1xZCvD6Ec";
 
     /*
     Production Bot configuration
     */
-    public secret:string="BeybTd3ehgs.0sMod7EPfTy_HePGUiuUaVzmrIbS_ypZiA1xZCvD6Ec";
+    
+    public secret:string="3eZXbb4L87E.m4FOSz-R7iR9G0awFA7oYQGCGENLN0SB5Bq_yxBDI40";
+
     public webChatURL:string="https://webchat.botframework.com/api/tokens";
 
     /*
 
     */
     public smartyBlob:string="https://axagie.blob.core.windows.net/smarty";
+
+
+    public hostUrl:string="http://localhost:3978/";
+    public getChatReport:string = "api/chat-report";
 }

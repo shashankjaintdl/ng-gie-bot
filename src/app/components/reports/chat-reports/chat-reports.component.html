@@ -1,0 +1,41 @@
+<app-nav></app-nav>
+<div class="main-content">
+    <div class="container-fluid content">
+        <div class="row">
+                <div class="col-sm-3">
+                    <form>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                       
+                            <div class="btn-group pt-1" role="group">
+                            <div class="input-group input-daterange d-flex align-items-center">
+                            <input type="date" class="form-control"  [(ngModel)] = "startDate" name="startDate" ngModel>
+                            <div class="input-group-addon mx-4">To</div>
+                            <input type="date" class="form-control"  [(ngModel)] = "endDate" name="endDate" ngModel>
+                            <div class="input-group-addon"></div>
+                            <button class="btn btn-primary form-control" type="button" (click)="apply()">Apply</button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                  
+                </div>
+               
+         
+        
+        </div>
+        <div class="row content">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">
+                        Panel Content
+                    </div>
+                    <div class="panel-footer">Panel Footer</div>
+                  </div>
+            </div>
+
+        </div>
+     
+    </div>
+</div>

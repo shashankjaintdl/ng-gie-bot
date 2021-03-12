@@ -1,0 +1,21 @@
+.navbar{
+    background: white;
+    border-color: white;
+    box-shadow: 1px 2px 2px 1px gray;
+    -webkit-box-shadow:1px 2px 2px 1px gray;
+    -moz-box-shadow:1px 2px 2px 1px gray;
+    /* position: fixed;
+    width: 100%; */
+    top:0%;
+    margin-bottom: 0px !important;
+    border-radius: 0%;
+}
+.navbar .navbar-header .navbar-brand{
+    color: green;
+}
+ul li a:hover {
+    background: none;
+    color: black;
+}
+
+

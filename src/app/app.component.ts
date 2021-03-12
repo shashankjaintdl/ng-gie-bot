@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import { CookieService } from 'ngx-cookie';
 import { map, filter, mergeMap } from 'rxjs/operators';
@@ -14,32 +14,34 @@ import { JKeys } from './models/JKeys';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'AXA-GIE-UI-NG';
 
   
   code:string=null;
   _jKeys:JKeys=new JKeys();
   
-  constructor(protected localStorage:CookieService){
+  constructor(protected localStorage:CookieService,private renderer: Renderer2){
     this.redirect();
   }
-
+  ngAfterViewInit() {
+    let loader = this.renderer.selectRootElement('#fuse-splash-screen');
+    this.renderer.setStyle(loader, 'display', 'none');
+ }
   redirect(){
-    this.localStorage.removeAll();
     var currentURL=window.location.href;
     this.code=currentURL.split('&code=')[1];
     this.localStorage.put('code',this.code);
-    console.log("code"+this.code);
-    if(this.code===undefined || this.code==undefined){
-    window.location.href =  this._jKeys.maamStgHost+
-                           'authorize?client_id='+
-                            this._jKeys.clientId+
-                            '&response_type='+
-                            this._jKeys.response_type+
-                            '&scope=urn%3Aaxa%3Agie%3Achatbot%3Agir&redirect_uri='+
-                            this._jKeys.stgRedirectUrl;
-    }
+    // console.log("code"+this.code);
+    // if(this.code===undefined || this.code==undefined){
+    // window.location.href =  this._jKeys.maamStgHost+
+    //                        'authorize?client_id='+
+    //                         this._jKeys.clientId+
+    //                         '&response_type='+
+    //                         this._jKeys.response_type+
+    //                         '&scope=urn%3Aaxa%3Agie%3Achatbot%3Agir&redirect_uri='+
+    //                         this._jKeys.stgRedirectUrl;
+    // }
   }
 
     getToken(code){

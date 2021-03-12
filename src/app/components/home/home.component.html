@@ -9,14 +9,16 @@
     <div class="Layout Layout-open Layout-expand Layout-right" style="background-color: #1e6465;color: rgb(255, 255, 255);opacity: 5;border-radius: 10px;">
         <div class="Messenger_messenger">
         <div class="Messenger_header" style="background-color:#1e6465; color: rgb(255, 255, 255);height: 45px;">
-          <h2 class="Messenger_prompt" style="text-align: center;"><b>Smarty</b></h2> 
-          <span class="chat_close_icon" (click)="onShow()"><i class="fa fa-close" aria-hidden="true"></i></span> 
-          <span class="chat_max_icon" *ngIf="!max" (click)="onMaximize()"><i class="fa fa-expand-alt" aria-hidden="true"></i></span> 
-          <span class="chat_max_icon" *ngIf="max" (click)="onResize()"><i class="fa fa-compress-alt" aria-hidden="true"></i></span> 
+          <h2 class="Messenger_prompt" style="text-align: center;"><b>Smarty</b></h2>
+          <span class="chat_close_icon" (click)="onShow()"><i class="fa fa-close" aria-hidden="true"></i></span>
+          <span class="chat_max_icon" *ngIf="!max" (click)="onMaximize()"><i class="fa fa-expand-alt" aria-hidden="true"></i></span>
+          <span class="chat_max_icon" *ngIf="max" (click)="onResize()"><i class="fa fa-compress-alt" aria-hidden="true"></i></span>
+          <!-- <span class="chat_refresh_icon btn btn-danger" *ngIf='!token' (click)="loginAdmin()"><i class="fa fa-user" aria-hidden="true"></i> Admin</span>  -->
+          <!-- <span class="chat_refresh_icon" (click)="onRefresh()"><i class="fa fa-user-o" aria-hidden="true"></i></span>  -->
+
         </div>
         <div class="Messenger_content">
           <!-- Adding Chat Bot App Components-->
-          
             <app-bot></app-bot>
           <!-- End Of Chat Bot App Components-->
         </div>
