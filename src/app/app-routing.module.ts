@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 const routes: Routes = [
   // { path: 'chat.html', redirectTo: '/smarty', pathMatch: 'full' },
   // {path:'**',redirectTo:"smarty"},
-  // {path:'unauthorize',component:UnauthorizedComponent},
+  {path:'unauthorize',component:UnauthorizedComponent},
   {path: '', redirectTo: '/smarty', pathMatch: 'full' },
   // {path: 'smarty',component:HomeComponent},
   {path:'auth',component:RedirectComponent},

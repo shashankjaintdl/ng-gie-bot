@@ -30,26 +30,26 @@ export class HomeComponent implements OnInit {
         this.onLoad();
         this.onShow();
       }
-     
+
       // this.onLoad();
       // this.onShow();
-    
+
   }
 
   loginAdmin(){
     if(this.token){
-      this.router.navigate(['admin/dashboard']);  
+      this.router.navigate(['admin/dashboard']);
 
     }
     else{
-      this.router.navigate(['unauthorized']);  
+      this.router.navigate(['unauthorized']);
     }
 
   }
 
   onRefresh()
   {
-    location.reload();    
+    location.reload();
   }
   onShow(){
        //@ts-ignore
@@ -83,13 +83,13 @@ export class HomeComponent implements OnInit {
    this.onShow();
 
 }
-  
+
   onMaximize(){
     console.log("Maximize");
     this.max=true;
     var screenHeight=window.innerHeight;
     var screenWidth=window.innerWidth;
-    
+
     if(screenHeight<900 && screenWidth<480){
     //@ts-ignore
     const elem:HTMLElement = document.getElementsByClassName("Layout-open");
@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit {
    const elem3:HTMLElement = document.getElementsByClassName("Layout");
    this.setStyleAttribute(elem3[0], {'min-width':'100%', 'max-height':'100%','right':'0px'});
     }
-  
+
 
 
   }
@@ -137,7 +137,7 @@ export class HomeComponent implements OnInit {
      const elem:HTMLElement = document.getElementsByClassName("Layout-open");
      this.setStyleAttribute(elem[0], {'height':'90%', 'max-height':'90%'});
      //@ts-ignore
- 
+
      const elem1:HTMLElement = document.getElementsByClassName("Layout-expand");
      this.setStyleAttribute(elem1[0], {'height':'90%', 'min-height':'90%'});
     }
@@ -163,7 +163,7 @@ export class HomeComponent implements OnInit {
       this.setStyleAttribute(elem3[0], {'min-width':"40%", 'max-height':'500px','right':'2px',"margin-left":"15px",'margin-bottom':'10vmin'});
 
     }
-  
+
   }
 
 setStyleAttribute(element: HTMLElement, attrs: { [key: string]: Object }): void {
@@ -193,7 +193,7 @@ setStyleAttribute(element: HTMLElement, attrs: { [key: string]: Object }): void 
 //     (
 //         map((response: Response) => response.json()),
 //         catchError(this.handleError)
-//   );   
+//   );
 // }
 
 // handleError(error: HttpErrorResponse) {

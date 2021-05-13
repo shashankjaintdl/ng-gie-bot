@@ -26,14 +26,14 @@ export class BotComponent implements AfterViewInit, OnInit  {
     webSocket: true
   };
   stylesetPayload: DEFAULT_OPTIONS = {
-   
+
     rootHeight: '100%',
     botAvatarInitials: 'BF',
     userAvatarInitials: 'CH',
     botAvatarImage:'../../../assets/ic_launcher.png',
     backgroundColor: 'white',
     bubbleBackground: '#eff6f8',
-    bubbleBorderWidth: 0, 
+    bubbleBorderWidth: 0,
     bubbleBorderStyle: 'none',
     bubbleFromUserBorderWidth: 5,
     bubbleBorderColor: 'green',
@@ -50,6 +50,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
     suggestedActionHeight: 50,
     suggestedActionBorderRadius:'30%',
     suggestedActionBackground:'#1e6465',
+    suggestedActionTextColor:'white',
     suggestedActionDisabledBackground:'white',
     markdownRespectCRLF:true,
     root: {
@@ -61,25 +62,25 @@ export class BotComponent implements AfterViewInit, OnInit  {
 
       /* Track */
       ' ::-webkit-scrollbar-track': {
-        background: '#131313' 
+        background: '#131313'
       },
 
       /* Handle */
       ' ::-webkit-scrollbar-thumb': {
-        background: '#353535' 
+        background: '#353535'
       },
 
       /* Handle on hover */
       ' ::-webkit-scrollbar-thumb:hover': {
-        background: 'red' 
-      }           
+        background: 'red'
+      }
     },
     textContent: {
       // fontFamily: '\'Comic Sans MS\', \'Arial\', sans-serif',
       // fontWeight: 'bold',
       cursor: 'crosshair',
       color: 'white',
-      
+
     }
   };
   styleOptionsPayload: DEFAULT_OPTIONS = {
@@ -104,9 +105,9 @@ export class BotComponent implements AfterViewInit, OnInit  {
     sendBoxBorderTop: 'solid 0px #E6E6E6',
     hideSendBox: false,
     hideUploadButton: true,
-    
+
   };
-  
+
   error: any;
   constructor(
     private botService: BotService,
@@ -114,10 +115,10 @@ export class BotComponent implements AfterViewInit, OnInit  {
     private bot: BotDirective,
     private botHelper: BotHelperDirective
   ) { }
-  
+
   public ngOnInit(): void {
     this.obtainStylePayload();
-    
+
     this.obtainLocalToken();
   }
 
@@ -139,9 +140,9 @@ export class BotComponent implements AfterViewInit, OnInit  {
                     webSocket: this.payload.webSocket
                 });
 
-                
+
                 const styleSet = window.WebChat.createStyleSet(this.stylesetPayload);
-          
+
                 let userId = 'USER_ID';
                 this.renderObject = {
                   directLine: directLine,
@@ -174,7 +175,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
                     {
                       cursor: 'crosshair',
                       color: 'white',
-                     
+
                     }
                   );
                   // console.log("Hello")
@@ -190,18 +191,18 @@ export class BotComponent implements AfterViewInit, OnInit  {
 
                       /* Track */
                       ' ::-webkit-scrollbar-track': {
-                        background: '#131313' 
+                        background: '#131313'
                       },
 
                       /* Handle */
                       ' ::-webkit-scrollbar-thumb': {
-                        background: '#353535' 
+                        background: '#353535'
                       },
 
                       /* Handle on hover */
                       ' ::-webkit-scrollbar-thumb:hover': {
-                        background: 'red' 
-                      }           
+                        background: 'red'
+                      }
                     }
                   );
               }
@@ -225,7 +226,7 @@ export class BotComponent implements AfterViewInit, OnInit  {
     this.botService.makeIntentionalError().subscribe(null, error => this.error = error );
   }
 
-  
-  
+
+
 
 }

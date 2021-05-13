@@ -53,7 +53,7 @@ import { FormsModule } from '@angular/forms';
     NgxExtendedPdfViewerModule,
     OAuthModule.forRoot(),
     FormsModule,
-    
+
     // AuthModule.forRoot(),
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({showForeground:true}),

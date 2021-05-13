@@ -28,7 +28,7 @@ export class AuthenticationService{
             method: RequestMethod.Post,
             headers: {
               //@ts-ignore
-              "Authorization": "Basic Y2VmMDZiZDQ6dlpFckFyeUFnbHppQ3l5Yk9lZjdRS18zSEVTclhuc1hVVEg0Y09DNGc3VTREWjA2T01EODl3",
+              "Authorization": "Basic Y2VmMDZiZDQ6b1VmVldRT1I3VUNROUstYnlTZUlJTzFmbjFJbGFHWFNGT0JlWlljTG0zYzF3STZIZ3VJMURR",
               "Content-Type": "application/x-www-form-urlencoded"
             },
         body: querystring.stringify({"grant_type":"authorization_code"})
@@ -47,7 +47,7 @@ export class AuthenticationService{
       getToken() {
         return this.localstorage.get('token');
       }
-    
+
       handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.
@@ -64,7 +64,7 @@ export class AuthenticationService{
           'Something bad happened; please try again later.');
       }
 
-      
+
       // isTokenExpired(token?: string): boolean {
       //   if(!token) token = this.getToken();
       //   if(!token) return true;
@@ -74,5 +74,5 @@ export class AuthenticationService{
       //   if(date === undefined) return false;
       //   return !(date.valueOf() > new Date().valueOf());
       // }
-    
+
 }

@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.erase();
   }
- 
+
 
   openTerms(){
     var screenWidth=window.innerWidth;

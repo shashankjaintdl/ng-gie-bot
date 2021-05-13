@@ -1,0 +1,10 @@
+keytool -genkeypair -alias mytest -keyalg RSA -keypass mypass -keystore mytest.jks -storepass mypass
+
+
+>keytool -genkeypair -alias JWT_AUTH -keyalg RSA -keypass Sjain@123 -keystore JWT_AUTH.jks -storepass Sjain@123
+
+>keytool -list -rfc --keystore JWT_AUTH.jks | openssl x509 -inform pem -pubkey
+
+
+curl -X POST --user clientapp:123456 http://localhost:8080/oauth/token  -H "content-type: application/x-www-form-urlencoded" -d "code=Vw9TLL&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8082%2Flogin&scope=read_user_info"
+
